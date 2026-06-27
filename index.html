@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Redirect</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opening...</title>
+
 <script>
-  window.onload = function() {
-    // Open in external browser
+function openChrome() {
+  // Try to launch Chrome
+  window.location.href =
+    "intent://surprise-self-five.vercel.app/#Intent;scheme=https;package=com.android.chrome;end";
+
+  // Fallback after 2 seconds
+  setTimeout(function () {
     window.location.href = "https://surprise-self-five.vercel.app/";
-  }
+  }, 2000);
+}
+
+window.onload = openChrome;
 </script>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial,sans-serif;
+  background:#fff;
+  text-align:center;
+  padding:20px;
+}
+</style>
 </head>
+
 <body>
-<p>If not redirected, <a href="https://surprise-self-five.vercel.app/">click here</a>.</p>
+<div>
+  <h2>Opening in Chrome...</h2>
+  <p>If Chrome doesn't open automatically, please tap the menu (⋮) in Instagram and choose <b>Open in browser</b>.</p>
+</div>
 </body>
 </html>
