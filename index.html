@@ -6,39 +6,44 @@
 <title>Opening...</title>
 
 <script>
-function openChrome() {
-  // Try to launch Chrome
-  window.location.href =
-    "intent://surprise-self-five.vercel.app/#Intent;scheme=https;package=com.android.chrome;end";
+const website = "https://surprise-self-five.vercel.app/";
 
-  // Fallback after 2 seconds
-  setTimeout(function () {
-    window.location.href = "https://surprise-self-five.vercel.app/";
-  }, 2000);
+function openExternal() {
+  const ua = navigator.userAgent.toLowerCase();
+
+  // Only try intent inside Instagram/Facebook
+  if (
+    ua.includes("instagram") ||
+    ua.includes("fbav") ||
+    ua.includes("fban")
+  ) {
+
+    window.location.href =
+      "intent://surprise-self-five.vercel.app/#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=" +
+      encodeURIComponent(website) +
+      ";end";
+
+  } else {
+    window.location.replace(website);
+  }
 }
 
-window.onload = openChrome;
+window.onload = openExternal;
 </script>
 
 <style>
 body{
-  margin:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:Arial,sans-serif;
-  background:#fff;
-  text-align:center;
-  padding:20px;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,sans-serif;
 }
 </style>
-</head>
 
+</head>
 <body>
-<div>
-  <h2>Opening in Chrome...</h2>
-  <p>If Chrome doesn't open automatically, please tap the menu (⋮) in Instagram and choose <b>Open in browser</b>.</p>
-</div>
+Opening...
 </body>
 </html>
