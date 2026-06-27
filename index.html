@@ -1,47 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opening...</title>
-
+<title>Open in Chrome</title>
 <script>
-const website = "https://surprise-self-five.vercel.app/";
-
-function openExternal() {
-  const ua = navigator.userAgent.toLowerCase();
-
-  // Only try intent inside Instagram/Facebook
-  if (
-    ua.includes("instagram") ||
-    ua.includes("fbav") ||
-    ua.includes("fban")
-  ) {
-
-    window.location.href =
-      "intent://surprise-self-five.vercel.app/#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=" +
-      encodeURIComponent(website) +
-      ";end";
-
-  } else {
-    window.location.replace(website);
-  }
-}
-
-window.onload = openExternal;
+window.onload = function () {
+  window.location.href =
+    "intent://surprise-self-five.vercel.app/#Intent;scheme=https;package=com.android.chrome;end";
+};
 </script>
-
-<style>
-body{
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:Arial,sans-serif;
-}
-</style>
-
 </head>
 <body>
 Opening...
